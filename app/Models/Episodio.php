@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 class Episodio extends Model {
 
     public $timestamps = false;
-    protected $fillable = ['temporada', 'numero', 'assistido'];
+    protected $fillable = ['temporada', 'numero', 'assistido','serie_id'];
 
     public function series(){
         return $this->belongsTo(Serie::class);
+    }
+
+    public function getAssistidoAtribute($assistido): bool {
+        return $assistido;
     }
 }

@@ -3,12 +3,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BaseController {
+abstract class BaseController {
 
     protected $classe;
 
-    public function index() {
-        return $this->classe::all();
+    public function index(Request $request) {
+        return $this->classe::paginate($request->per_page);
     }
 
     public function store(Request $request){
