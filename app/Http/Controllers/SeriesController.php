@@ -35,6 +35,15 @@ class SeriesController {
         return response()->json($serie);
     }
 
+    public function destroy(int $id){
+        $qtdeRecursosRemovidos = Serie::destroy($id);
+        if ($qtdeRecursosRemovidos === 0 ){
+            return response()
+            ->json(['erro' => 'Recurso não encontrado'], status: 404);
+        }
+
+        return response()->json('Apagado', status: 204);
+    }
 }
 
 
