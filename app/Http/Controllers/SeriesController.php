@@ -12,7 +12,7 @@ class SeriesController {
 
     public function store(Request $request){
         return response()->json(
-            Serie::create([$request->all()),
+            Serie::create($request->all()),
             status: 201
         );
     }
