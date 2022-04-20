@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class UsuarioSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(UsuarioSeeder::class);
+        \App\Models\User::create([
+            'email' => 'teste@email.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('senha')
+        ]);
     }
 }
